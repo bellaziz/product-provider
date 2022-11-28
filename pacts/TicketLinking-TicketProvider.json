@@ -1,0 +1,86 @@
+{
+  "provider": {
+    "name": "TicketProvider"
+  },
+  "consumer": {
+    "name": "TicketLinking"
+  },
+  "interactions": [
+    {
+      "description": "get Ticket by visualId",
+      "request": {
+        "method": "GET",
+        "path": "/tickets/000000001"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "ticketVisualId": "000000001",
+          "guestName": "Micky",
+          "shared": false,
+          "type": "annual-pass",
+          "label": "annual pass ticket",
+          "remainingUse": 3,
+          "startDateTime": "2022-11-24 15:41:25",
+          "endDateTime": "2023-11-24 15:41:25"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Ticket visualId 000000001 exists"
+        }
+      ]
+    },
+    {
+      "description": "get all Tickets",
+      "request": {
+        "method": "GET",
+        "path": "/tickets"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "ticketVisualId": "000000001",
+            "guestName": "Micky",
+            "shared": false,
+            "type": "annual-pass",
+            "label": "annual pass ticket",
+            "remainingUse": 3,
+            "startDateTime": "2022-11-24 15:41:25",
+            "endDateTime": "2023-11-24 15:41:25"
+          },
+          {
+            "ticketVisualId": "000000002",
+            "guestName": "Micky",
+            "shared": false,
+            "type": "pass-en-scene",
+            "label": "pass en scene ticket",
+            "remainingUse": 5,
+            "startDateTime": "2022-11-24 15:41:25",
+            "endDateTime": "2023-11-24 15:41:25"
+          }
+        ]
+      },
+      "providerStates": [
+        {
+          "name": "Tickets exist"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.7"
+    }
+  }
+}

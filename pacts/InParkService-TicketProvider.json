@@ -1,0 +1,48 @@
+{
+  "provider": {
+    "name": "TicketProvider"
+  },
+  "consumer": {
+    "name": "InParkService"
+  },
+  "interactions": [
+    {
+      "description": "get all Tickets",
+      "request": {
+        "method": "GET",
+        "path": "/tickets"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "ticketVisualId": "000000001",
+            "guestName": "Micky",
+            "type": "annual-pass"
+          },
+          {
+            "ticketVisualId": "000000002",
+            "guestName": "Micky",
+            "type": "pass-en-scene"
+          }
+        ]
+      },
+      "providerStates": [
+        {
+          "name": "Tickets exist"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.7"
+    }
+  }
+}
