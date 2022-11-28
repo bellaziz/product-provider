@@ -29,7 +29,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension.class)
 @Provider("TicketProvider")
-@PactFolder("pacts")
+//@PactFolder("pacts")
+@PactBroker(
+    host = "localhost",
+    port = "9292",
+    authentication = @PactBrokerAuth(username = "pact_user", password = "pact_password")
+)
 class TicketProviderPactVerification {
 
   @LocalServerPort
